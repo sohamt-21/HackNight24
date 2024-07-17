@@ -18,23 +18,8 @@ import {
 
 export const description = "A bar chart"
 
-const chartData = [
-  { month: "January", crop: 186 },
-  { month: "February", crop: 305 },
-  { month: "March", crop: 237 },
-  { month: "April", crop: 73 },
-  { month: "May", crop: 209 },
-  { month: "June", crop: 214 },
-]
 
-const chartConfig = {
-  crop: {
-    label: "crop",
-    color: "rgb(var(--primary-main))",
-  },
-}
-
-export default function Component() {
+export default function Barchart({chartData, chartConfig}) {
   return (
     <Card>
       <CardHeader>
@@ -44,7 +29,7 @@ export default function Component() {
       <CardContent>
         <ChartContainer config={chartConfig}>
           <BarChart accessibilityLayer data={chartData}>
-            <CartesianGrid vertical={false} />
+            <CartesianGrid vertical={true} />
             <XAxis
               dataKey="month"
               tickLine={false}

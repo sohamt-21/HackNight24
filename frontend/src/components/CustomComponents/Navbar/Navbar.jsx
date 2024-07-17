@@ -10,7 +10,6 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
 } from "../../ui/navigation-menu";
 
 const Navbar = () => {
@@ -56,7 +55,7 @@ const Navbar = () => {
         <NavigationMenu className=" dark ">
           <NavigationMenuList>
             <NavigationMenuItem>
-              <NavigationMenuTrigger className=" text-lg hover:bg-accent hover:text-accent-foreground text-lg font-light">
+              <NavigationMenuTrigger className=" hover:bg-accent hover:text-accent-foreground text-lg font-light">
                 Go To Feature
               </NavigationMenuTrigger>
               <NavigationMenuContent>
@@ -77,9 +76,14 @@ const Navbar = () => {
                       </a>
                     </NavigationMenuLink>
                   </li>
-                  <a href="/docs" title="Introduction" className=" font-thin hover:bg-gray-700">
+                  <a
+                    href="/docs"
+                    title="Introduction"
+                    className=" font-thin hover:bg-gray-700"
+                  >
                     <p className=" font-bold ">Community</p>
-                    Get the latest news about Goverment Subsidies and news in Farming
+                    Get the latest news about Goverment Subsidies and news in
+                    Farming
                   </a>
 
                   <a
@@ -104,7 +108,6 @@ const Navbar = () => {
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
-        <Button variant="ghost">Sign In</Button>
         {/* <ModeToggle /> */}
       </motion.div>
     </motion.nav>
