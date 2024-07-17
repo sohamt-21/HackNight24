@@ -9,6 +9,11 @@ import {
 import TextAnimation from "../../ui/TextAnimation";
 
 function Footer() {
+
+  const auth = localStorage.getItem("user");
+    
+    console.log(auth);
+    
   const container = useRef();
   const { scrollYProgress } = useScroll({
     target: container,

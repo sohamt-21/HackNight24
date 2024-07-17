@@ -11,6 +11,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "../../ui/navigation-menu";
+import { SignInButton } from '@clerk/clerk-react';
 
 const Navbar = () => {
   const [isHidden, setisHidden] = useState(false);
@@ -52,62 +53,7 @@ const Navbar = () => {
         <Button variant="ghost">About</Button>
         <Button variant="ghost">Pricing</Button>
         <Button variant="ghost">Contact</Button>
-        <NavigationMenu className=" dark ">
-          <NavigationMenuList>
-            <NavigationMenuItem>
-              <NavigationMenuTrigger className=" hover:bg-accent hover:text-accent-foreground text-lg font-light">
-                Go To Feature
-              </NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                  <li className="row-span-3">
-                    <NavigationMenuLink asChild>
-                      <a
-                        className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                        href="/"
-                      >
-                        <img src={Logo} alt=" h-6 w-6" />
-                        <div className="mb-2 mt-4 text-lg font-medium">
-                          Go to the feature
-                        </div>
-                        <p className="text-sm leading-tight text-muted-foreground">
-                          Write Any relevent things here
-                        </p>
-                      </a>
-                    </NavigationMenuLink>
-                  </li>
-                  <a
-                    href="/docs"
-                    title="Introduction"
-                    className=" font-thin hover:bg-gray-700"
-                  >
-                    <p className=" font-bold ">Community</p>
-                    Get the latest news about Goverment Subsidies and news in
-                    Farming
-                  </a>
-
-                  <a
-                    href="/docs/installation"
-                    title="Installation"
-                    className=" font-thin hover:bg-gray-700"
-                  >
-                    <p className=" font-bold ">Installation</p>
-                    How to install dependencies and structure your app.
-                  </a>
-
-                  <a
-                    href="/docs/primitives/typography"
-                    title="Typography"
-                    className=" font-thin hover:bg-gray-700"
-                  >
-                    <p className=" font-bold ">Typography</p>
-                    Styles for headings, paragraphs, lists...etc.
-                  </a>
-                </ul>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-          </NavigationMenuList>
-        </NavigationMenu>
+        <SignInButton id='navbarbutton'/>
         {/* <ModeToggle /> */}
       </motion.div>
     </motion.nav>

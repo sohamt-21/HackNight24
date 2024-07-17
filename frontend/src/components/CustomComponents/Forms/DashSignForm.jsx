@@ -16,7 +16,7 @@ export default function Signup () {
   }, []);
   const CollectData = async () => {
     // console.warn(name, email, password);
-    let result = await fetch("http://localhost:5000/register", {
+    let result = await fetch("http://localhost:5001/register", {
       method: "post",
       body: JSON.stringify({ name, currentsaving, Annualsaving, Goal }),
       headers: {
@@ -70,4 +70,3 @@ export default function Signup () {
 };
 
 // export default Signup;
-

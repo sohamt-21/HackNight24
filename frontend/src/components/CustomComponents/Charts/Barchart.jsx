@@ -18,32 +18,31 @@ import {
 
 export const description = "A bar chart"
 
-
-export default function Barchart({chartData, chartConfig}) {
+export default function Barchart({ chartData, chartConfig }) {
   return (
-    <Card>
+    <Card > 
       <CardHeader>
         <CardTitle>Crop Dashboard</CardTitle>
         <CardDescription>January - June 2024</CardDescription>
       </CardHeader>
       <CardContent>
-        <ChartContainer config={chartConfig}>
-          <BarChart accessibilityLayer data={chartData}>
-            <CartesianGrid vertical={true} />
-            <XAxis
-              dataKey="month"
-              tickLine={false}
-              tickMargin={10}
-              axisLine={false}
-              tickFormatter={(value) => value.slice(0, 3)}
-            />
-            <ChartTooltip
-              cursor={false}
-              content={<ChartTooltipContent hideLabel />}
-            />
-            <Bar dataKey="crop" fill="var(--color-crop)" radius={8} />
-          </BarChart>
-        </ChartContainer>
+          <ChartContainer config={chartConfig}>
+            <BarChart  data={chartData}>
+              <CartesianGrid vertical={false} />
+              <XAxis
+                dataKey="month"
+                tickLine={false}
+                tickMargin={10}
+                axisLine={false}
+                tickFormatter={(value) => value.slice(0, 3)}
+              />
+              <ChartTooltip
+                cursor={false}
+                content={<ChartTooltipContent hideLabel />}
+              />
+              <Bar dataKey="crop" fill="var(--color-crop)" radius={8} />
+            </BarChart>
+          </ChartContainer>
       </CardContent>
       <CardFooter className="flex-col items-start gap-2 text-sm">
         <div className="flex gap-2 font-medium leading-none">

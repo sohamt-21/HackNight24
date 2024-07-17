@@ -1,4 +1,5 @@
-import Barchart from "..//components/CustomComponents/Charts/Barchart";
+import React, { useState } from "react";
+import Barchart from "../components/CustomComponents/Charts/Barchart";
 import { Button, buttonVariants } from "../components/ui/button";
 import {
   Card,
@@ -7,12 +8,12 @@ import {
   CardHeader,
   CardTitle,
 } from "../components/ui/card";
-
 import { DollarSign } from "lucide-react";
 
-import React, { useState } from "react";
-
 function Dashboard() {
+
+  const auth = localStorage.getItem("user");
+
   const chartData = [
     { month: "January", crop: 186 },
     { month: "February", crop: 305 },
@@ -40,16 +41,17 @@ function Dashboard() {
   const handleButtonClick = (buttonName) => {
     setActiveButton(buttonName);
   };
-  return (
-    <div className=" p-4 border-2 h-screen m-4">
-      <div className=" flex flex-row justify-between items-center border-b h-[3rem]">
-        <p className=" font-bold text-lg">Dashboard</p>
-        <p className=" ">User name and icon</p>
-      </div>
-      <div className=" flex flex-col gap-4 pt-4">
-        <h1 className=" font-bold text-3xl">Hi, Welcome Back 👋🏻</h1>
 
-        <div className=" h-fit w-fit px-2 py-2 rounded-xl bg-neutral-100 flex gap-2">
+  return (
+    <div className="p-4 border-2 h-screen m-4">
+      <div className="flex flex-row justify-between items-center border-b h-[3rem]">
+        <p className="font-bold text-lg">Dashboard</p>
+        <p className=""></p>
+      </div>
+      <div className="flex flex-col gap-4 pt-4">
+        <h1 className="font-bold text-3xl">Hi,  {JSON.parse(auth).name} </h1>
+
+        <div className="h-fit w-fit px-2 py-2 rounded-xl bg-neutral-100 flex gap-2">
           <Button
             variant={activeButton === "Overview" ? "outline" : "link"}
             onClick={() => handleButtonClick("Overview")}
@@ -70,8 +72,8 @@ function Dashboard() {
           </Button>
         </div>
 
-        <div className=" grid gap-4  md:grid-cols-2 md:gap-8 lg:grid-cols-4 ">
-          <Card x-chunk="A card showing the total revenue in USD and the percentage difference from last month.">
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">
                 Total Revenue
@@ -86,7 +88,7 @@ function Dashboard() {
             </CardContent>
           </Card>
 
-          <Card x-chunk="A card showing the total revenue in USD and the percentage difference from last month.">
+          <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Savings</CardTitle>
               <DollarSign className="h-4 w-4 text-muted-foreground" />
@@ -99,7 +101,7 @@ function Dashboard() {
             </CardContent>
           </Card>
 
-          <Card x-chunk="A card showing the total revenue in USD and the percentage difference from last month.">
+          <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Any Value</CardTitle>
               <DollarSign className="h-4 w-4 text-muted-foreground" />
@@ -113,68 +115,64 @@ function Dashboard() {
           </Card>
         </div>
 
-        <div className=" flex flex-row gap-8">
-          <div className=" w-[35rem]">
+        <div className="grid gap-8 md:grid-cols-2">
+          <div className="w-full">
             <Barchart chartConfig={chartConfig} chartData={chartData} />
           </div>
 
-          <div className=" flex flex-col border rounded-xl shadow-sm">
-            <div className=" flex flex-row gap-4 p-2">
-              <div
-                className="flex flex-1 items-center justify-center rounded-lg border shadow-sm w-[15rem] h-[13rem] hover:shadow-lg"
-                x-chunk="dashboard-02-chunk-1"
-              >
+          <div className="flex flex-col border rounded-xl shadow-sm">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-2">
+              <div className="flex flex-1 items-center justify-center rounded-lg border shadow-sm w-full h-[13rem] hover:shadow-lg">
                 <div className="flex flex-col items-center gap-1 text-center">
                   <h3 className="text-2xl font-bold tracking-tight">
                     Evaluation Model
                   </h3>
                   <p className="text-sm text-muted-foreground px-2">
-                    Give us your details and we will evaluate and review your crop investment.
+                    Give us your details and we will evaluate and review your
+                    crop investment.
                   </p>
-                  <a href="/" className={`${buttonVariants('default')} mt-4`}>Evaluate</a>
+                  <a href="/" className={`${buttonVariants("default")} mt-4`}>
+                    Evaluate
+                  </a>
                 </div>
               </div>
 
-              <div
-                className="flex flex-1 items-center justify-center rounded-lg border shadow-sm hover:shadow-lg"
-                x-chunk="dashboard-02-chunk-1"
-              >
+              <div className="flex flex-1 items-center justify-center rounded-lg border shadow-sm w-full h-[13rem] hover:shadow-lg">
                 <div className="flex flex-col items-center gap-1 text-center">
                   <h3 className="text-2xl font-bold tracking-tight">
                     G&S Trade Signal
                   </h3>
                   <p className="text-sm text-muted-foreground px-2">
-                    Get alerted about Trade with the price and news on Gold and Silver Prices.
+                    Get alerted about Trade with the price and news on Gold and
+                    Silver Prices.
                   </p>
-                  <a href="/" className={`${buttonVariants('default')} mt-4`}>Evaluate</a>
+                  <a href="/" className={`${buttonVariants("default")} mt-4`}>
+                    Evaluate
+                  </a>
                 </div>
               </div>
             </div>
 
-            <div className=" flex flex-row gap-2 p-3">
-              <div
-                className="flex flex-1 items-center justify-center rounded-lg border shadow-sm w-[15rem] h-[13rem] hover:shadow-lg"
-                x-chunk="dashboard-02-chunk-1"
-              >
+            <div className="flex flex-row gap-2 p-3">
+              <div className="flex flex-1 items-center justify-center rounded-lg border shadow-sm w-full h-[13rem] hover:shadow-lg">
                 <div className="flex flex-col items-center gap-1 text-center">
                   <h3 className="text-2xl font-bold tracking-tight">
                     Small Scale Buisness
                   </h3>
                   <p className="text-sm text-muted-foreground px-2">
-                    Get fundings from NFO, NGO and farmers especially for women empowerment.
+                    Get fundings from NFO, NGO and farmers especially for women
+                    empowerment.
                   </p>
-                  <a href="" className={`${buttonVariants('default')} mt-4`}>Evaluate</a>
+                  <a href="/" className={`${buttonVariants("default")} mt-4`}>
+                    Evaluate
+                  </a>
                 </div>
               </div>
 
-              {/* <div
-                className="flex flex-1 items-center justify-center rounded-lg border shadow-sm hover:shadow-lg"
-                x-chunk="dashboard-02-chunk-1"
-              >
+              {/* Uncomment and update this section as needed */}
+              {/* <div className="flex flex-1 items-center justify-center rounded-lg border shadow-sm w-full h-[13rem] hover:shadow-lg">
                 <div className="flex flex-col items-center gap-1 text-center">
-                  <h3 className="text-2xl font-bold tracking-tight">
-                    You have no products
-                  </h3>
+                  <h3 className="text-2xl font-bold tracking-tight">You have no products</h3>
                   <p className="text-sm text-muted-foreground">
                     You can start selling as soon as you add a product.
                   </p>

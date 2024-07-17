@@ -1,5 +1,4 @@
 import React, { useRef } from "react";
-import Linechart from "../Charts/Linechart";
 import { useInView } from "framer-motion";
 import { useTheme } from "../../theme-provider";
 import TableData from "./TableData";
@@ -19,24 +18,25 @@ function Features() {
   const isInView = useInView(chartRef, { amount: 0.5 });
 
   const chartData = [
-    { month: "January", desktop: 186, mobile: 80 },
-    { month: "February", desktop: 305, mobile: 200 },
-    { month: "March", desktop: 237, mobile: 120 },
-    { month: "April", desktop: 73, mobile: 190 },
-    { month: "May", desktop: 209, mobile: 130 },
-    { month: "June", desktop: 214, mobile: 140 },
+    { month: "January", crop: 186 },
+    { month: "February", crop: 305 },
+    { month: "March", crop: 237 },
+    { month: "April", crop: 73 },
+    { month: "May", crop: 209 },
+    { month: "June", crop: 214 },
+    { month: "July", crop: 186 },
+    { month: "August", crop: 305 },
+    { month: "September", crop: 237 },
+    { month: "October", crop: 73 },
+    { month: "November", crop: 209 },
+    { month: "December", crop: 214 },
   ];
 
   const chartConfig = {
-    desktop: {
-      label: "Desktop",
-      color: "#2563eb",
+    crop: {
+      label: "crop",
+      color: "rgb(var(--primary-main))",
     },
-    mobile: {
-      label: "Mobile",
-      color: "#60a5fa",
-    },
-    useTheme,
   };
 
   return (
@@ -57,8 +57,7 @@ function Features() {
           >
             <div className=" pt-4">
               {isInView && (
-                // <Linechart chartConfig={chartConfig} chartData={chartData} />
-                <Barchart/>
+                <Barchart chartData={chartData} chartConfig={chartConfig}/>
               )}
             </div>
 
