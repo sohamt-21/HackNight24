@@ -1,6 +1,6 @@
 import { Button } from "../../ui/button";
 import React, { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import {
   InstagramLogoIcon,
   LinkedInLogoIcon,
@@ -27,7 +27,7 @@ function Footer() {
       >
         <div className="flex flex-col justify-center items-center mt-20">
           <p className="font-Soria text-7xl flex justify-center items-center">
-            <TextAnimation text={"FinRock"}/>
+            Agrico
           </p>
           <div className="flex flex-row gap-[1rem]">
             <Button variant="link">Home</Button>
