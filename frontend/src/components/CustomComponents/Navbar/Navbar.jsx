@@ -55,13 +55,13 @@ const Navbar = () => {
           </Button>
         </a>
 
-        <a href="/localhost:3001">
+        <a href="http://localhost:3001">
           <Button variant="ghost" className=" gap-1">
             Crop Suggestor <ExternalLink size={18} />
           </Button>
         </a>
 
-        <a href="/localhost:3001">
+        <a href="http://localhost:3001">
           <Button variant="ghost" className=" gap-1">
             Gold & Silver Signal Tracker <ExternalLink size={18} />
           </Button>
