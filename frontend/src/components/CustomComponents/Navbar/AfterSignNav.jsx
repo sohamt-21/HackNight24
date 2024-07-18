@@ -1,7 +1,6 @@
 import { Button, buttonVariants } from "../../ui/button";
 import React, { useRef, useState } from "react";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
-import Logo from "../../../assets/Logo.png";
 import { useUserEmail } from "../../Context/UserEmail";
 import { SignOutButton, useUser } from "@clerk/clerk-react";
 import { Link } from "react-router-dom";
@@ -60,7 +59,7 @@ const AfterSignNav = () => {
         transition={{ duration: 0.3 }}
         className="nav-list w-fit h-16 z-20 px-8 list-none flex flex-row justify-center items-center fixed rounded-full border border-neutral-700 bg-gray-900 text-white dark:border-slate-200 dark:bg-slate-100 dark:text-black"
       >
-        <img src={Logo} alt="" className="h-16" />
+        <p className=" font-bold font-Soria text-3xl underline px-2">Agrico</p>
         <a href="#home">
           <Button variant="ghost">Home</Button>
         </a>
@@ -70,21 +69,21 @@ const AfterSignNav = () => {
           </Button>
         </a>
 
-        <a href="/localhost:3001">
+        <a href="http://localhost:3003">
           <Button variant="ghost" className=" gap-1">
             Live Bid <ExternalLink size={18} />
           </Button>
         </a>
 
-        <a href="/localhost:3001">
+        <a href="http://localhost:8501/">
           <Button variant="ghost" className=" gap-1">
-            Crop Suggestor <ExternalLink size={18} />
+            Crop Suggest <ExternalLink size={18} />
           </Button>
         </a>
 
-        <a href="/localhost:3001">
+        <a href="http://localhost:8505/">
           <Button variant="ghost" className=" gap-1">
-            Gold & Silver Signal Tracker <ExternalLink size={18} />
+            Gold & Silver Alert <ExternalLink size={18} />
           </Button>
         </a>
         <Link

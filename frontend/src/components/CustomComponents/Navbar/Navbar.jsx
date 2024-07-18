@@ -1,7 +1,6 @@
 import { Button, buttonVariants } from "../../ui/button";
 import React, { useRef, useState } from "react";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
-import Logo from "../../../assets/Logo.png";
 import { SignInButton } from '@clerk/clerk-react';
 import { ExternalLink } from "lucide-react";
 
@@ -50,7 +49,7 @@ const Navbar = () => {
           </Button>
         </a>
 
-        <a href="/localhost:3001">
+        <a href="http://localhost:3003">
           <Button variant="ghost" className=" gap-1">
             Live Bid <ExternalLink size={18} />
           </Button>
