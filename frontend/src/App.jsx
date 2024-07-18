@@ -6,6 +6,7 @@ import BeforeSign from "./Pages/Home/BeforeSign";
 import { Route, Routes } from "react-router-dom";
 import Dashboard from "./Pages/Dashboard";
 import DashSignForm from "./components/CustomComponents/Forms/DashSignForm";
+import Request from "./components/CustomComponents/Forms/Request";
 
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
           <Route path="/" Component={BeforeSign}/>
           <Route path="/dashboard" Component={Dashboard}/>
           <Route path="/dashform" Component={DashSignForm}/>
-          
+          <Route path="/request" Component={Request}/>
         </Routes> 
       </ThemeProvider>
     </ReactLenis>

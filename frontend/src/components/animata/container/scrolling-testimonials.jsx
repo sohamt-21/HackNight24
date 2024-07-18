@@ -17,7 +17,7 @@ function TestimonialCard({ testimonial: { image, name, description } }) {
         <div>
           <span className="block text-lg font-bold text-foreground">{name}</span>
           <span className="block text-lg font-medium leading-loose text-muted-foreground">
-            Founder of ABC
+            
           </span>
         </div>
       </div>
@@ -30,7 +30,7 @@ export default function ScrollingTestimonials({ data }) {
     <div className=" ">
       <div className="flex flex-row gap-3 h-[65vh]">
         <Marquee
-          className="[--duration:80s]"
+          className="[--duration:90s]"
           vertical
           pauseOnHover
           reverse

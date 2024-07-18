@@ -24,7 +24,7 @@ function Hero1() {
 
   return (
     <>
-      <div className="hero1-container w-full relative top-0 ">
+      <div className="hero1-container w-full relative top-0 " id="home">
         <div className="w-full h-fit grid grid-cols-12 gap-1 ">
           {Array.from(Array(12 * 9), (i) => (
             <Tile key={i} />

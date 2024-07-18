@@ -39,7 +39,7 @@ function Showcase() {
   };
 
   return (
-    <div className=" py-28">
+    <div className=" py-28" id="course">
       <div className="text-center mb-8">
         <p className="text-6xl font-Soria ">Courses</p>
         <p className=" text-lg">

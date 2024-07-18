@@ -34,16 +34,16 @@ function Component1() {
         Your browser does not support the video tag.
       </motion.video>
       <div className='relative z-7 flex flex-col justify-end h-full pb-4 pl-3'>
-        <h1 className="text-6xl font-bold mt-4 transition-all duration-300 transform text-white">Starter Course</h1>
+        <h1 className="text-5xl font-bold mt-4 transition-all duration-300 transform text-white">Introdcution to Finance</h1>
         <motion.p
           className={`text-white text-lg md:text-xl mt-4 transition-all duration-300 transform ${isHovered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
         >
-          Get started with platform introduction and basics
+          Getting started with platform introduction and Finance
         </motion.p>
         <motion.p
           className={`text-white transition-all duration-300 transform ${isHovered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
         >
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam consequuntur fugiat magnam beatae hic iure iusto sint possimus.
+          Learn how to use the platform and gather brief knowledge of Finance. What are investments and how they help one attain their life goals. 
         </motion.p>
       </div>
     </motion.div>

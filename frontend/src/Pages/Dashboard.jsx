@@ -39,7 +39,7 @@ function Dashboard() {
   const chartConfig = {
     crop: {
       label: "crop",
-      color: "rgb(var(--primary-main))",
+      color: "#565fff",
     },
   };
 
@@ -178,22 +178,12 @@ function Dashboard() {
                     View Pending Requests
                   </a>
 
-                  <a href="/" className={`${buttonVariants("default")} mt-4`}>
+                  <a href="/request" className={`${buttonVariants("default")} mt-4`}>
                     Make a Request
                   </a>
                 </div>
               </div>
-
-              {/* Uncomment and update this section as needed */}
-              {/* <div className="flex flex-1 items-center justify-center rounded-lg border shadow-sm w-full h-[13rem] hover:shadow-lg">
-                <div className="flex flex-col items-center gap-1 text-center">
-                  <h3 className="text-2xl font-bold tracking-tight">You have no products</h3>
-                  <p className="text-sm text-muted-foreground">
-                    You can start selling as soon as you add a product.
-                  </p>
-                  <Button className="mt-4">Add Product</Button>
-                </div>
-              </div> */}
+              
             </div>
           </div>
         </div>

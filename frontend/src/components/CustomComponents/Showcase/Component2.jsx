@@ -35,12 +35,12 @@ function Component2() {
           Your browser does not support the video tag.
         </motion.video>
         <div className="relative z-7 flex flex-col justify-end h-full pb-4 pl-3">
-          <h1 className={` text-6xl font-bold mt-4 transition-all duration-300 transform ${
+          <h1 className={` text-5xl font-bold mt-4 transition-all duration-300 transform ${
               isHovered
                 ? "text-white"
                 : "text-black"
             }`}>
-            Advanced Course
+            Advanced Finance Concepts
           </h1>
           <motion.p
             className={`text-white text-lg md:text-xl mt-4 transition-all duration-300 transform ${
@@ -49,7 +49,7 @@ function Component2() {
                 : "opacity-0 translate-y-10"
             }`}
           >
-            In Depth Knowledge of all the aspectes to be considered for Profits
+            Learn from Experts How to get Goverment Plans.
           </motion.p>
           <motion.p
             className={`text-white transition-all duration-300 transform ${
@@ -58,8 +58,7 @@ function Component2() {
                 : "opacity-0 translate-y-10"
             }`}
           >
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam
-            consequuntur fugiat magnam beatae hic iure iusto sint possimus.
+            Experts from big texh-firm will teach you how to invest money in agricultural fields. How to imporove portofolio and a lot.
           </motion.p>
         </div>
       </motion.div>

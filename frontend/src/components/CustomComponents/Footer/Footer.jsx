@@ -25,6 +25,7 @@ function Footer() {
     <div
       className="relative bottom-0 w-11/12 border-t-2 mx-auto h-[40vh] overflow-hidden"
       ref={container}
+      id="footer"
     >
       <motion.div
         className=" h-full flex justify-center items-center gap-1"
@@ -35,10 +36,10 @@ function Footer() {
             Agrico
           </p>
           <div className="flex flex-row gap-[1rem]">
-            <Button variant="link">Home</Button>
-            <Button variant="link">Price</Button>
-            <Button variant="link">Courses</Button>
-            <Button variant="link">Waitlist</Button>
+            <a href="#home"><Button variant="link">Home</Button></a>
+            <a href="#about"><Button variant="link">About</Button></a>
+            <a href="#course"><Button variant="link">Courses</Button></a>
+            <a href="#footer"><Button variant="link">Waitlist</Button></a>
           </div>
           <hr className="w-full bg-black mt-4 mb-2" />
           <p>All Rights Reserved @Never Selected</p>
