@@ -1,18 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Barchart from "../components/CustomComponents/Charts/Barchart";
 import { Button, buttonVariants } from "../components/ui/button";
 import {
   Card,
   CardContent,
-  CardDescription,
   CardHeader,
   CardTitle,
 } from "../components/ui/card";
 import { DollarSign } from "lucide-react";
 
 function Dashboard() {
+  const [isUser, setIsUser] = useState(false);
+  const [userData, setUserData] = useState({}); 
 
-  const auth = localStorage.getItem("user");
+  useEffect(() => {
+    const auth = localStorage.getItem("user");
+    if (auth) {
+      setUserData(JSON.parse(auth));
+      setIsUser(true);
+    }
+  }, []);
 
   const chartData = [
     { month: "January", crop: 186 },
@@ -43,13 +50,13 @@ function Dashboard() {
   };
 
   return (
-    <div className="p-4 border-2 h-screen m-4">
+    <div className="p-4 h-screen m-4">
       <div className="flex flex-row justify-between items-center border-b h-[3rem]">
-        <p className="font-bold text-lg">Dashboard</p>
+        <p className="font-bold text-4xl">Dashboard</p>
         <p className=""></p>
       </div>
       <div className="flex flex-col gap-4 pt-4">
-        <h1 className="font-bold text-3xl">Hi,  {JSON.parse(auth).name} </h1>
+        {isUser && <h1 className="font-bold text-3xl">Hi, {userData.name}</h1>}
 
         <div className="h-fit w-fit px-2 py-2 rounded-xl bg-neutral-100 flex gap-2">
           <Button
@@ -81,7 +88,9 @@ function Dashboard() {
               <DollarSign className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">$45,231.89</div>
+              <div className="text-2xl font-bold">
+                {isUser ? userData.annualSaving : "123"}
+              </div>
               <p className="text-xs text-muted-foreground">
                 +20.1% from last month
               </p>
@@ -94,7 +103,9 @@ function Dashboard() {
               <DollarSign className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">000000</div>
+              <div className="text-2xl font-bold">
+                {isUser ? userData.currentsaving : "000"}
+              </div>
               <p className="text-xs text-muted-foreground">
                 +20.1% from last month
               </p>
@@ -157,14 +168,18 @@ function Dashboard() {
               <div className="flex flex-1 items-center justify-center rounded-lg border shadow-sm w-full h-[13rem] hover:shadow-lg">
                 <div className="flex flex-col items-center gap-1 text-center">
                   <h3 className="text-2xl font-bold tracking-tight">
-                    Small Scale Buisness
+                    Small Scale Business
                   </h3>
                   <p className="text-sm text-muted-foreground px-2">
                     Get fundings from NFO, NGO and farmers especially for women
                     empowerment.
                   </p>
                   <a href="/" className={`${buttonVariants("default")} mt-4`}>
-                    Evaluate
+                    View Pending Requests
+                  </a>
+
+                  <a href="/" className={`${buttonVariants("default")} mt-4`}>
+                    Make a Request
                   </a>
                 </div>
               </div>

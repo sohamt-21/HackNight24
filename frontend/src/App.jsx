@@ -1,11 +1,11 @@
 import "./App.css";
 import "./index.css";
-import Home from "./Pages/Home/Home";
 import { ThemeProvider } from "./components/theme-provider";
 import { ReactLenis, useLenis } from "lenis/react";
-import Dashboard from "./Pages/Dashboard";
-import Signup from "./components/CustomComponents/Forms/DashSignForm";
 import BeforeSign from "./Pages/Home/BeforeSign";
+import { Route, Routes } from "react-router-dom";
+import Dashboard from "./Pages/Dashboard";
+import DashSignForm from "./components/CustomComponents/Forms/DashSignForm";
 
 
 function App() {
@@ -14,12 +14,12 @@ function App() {
   return (
     <ReactLenis root>
       <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
-        <BeforeSign/>
-        {/* <Home /> */}
-        {/* <Dashboard/> */}
-        {/* <Signup/> */}
-        {/* <Retrive/> */}
-        {/* <Signup/> */}
+        <Routes>
+          <Route path="/" Component={BeforeSign}/>
+          <Route path="/dashboard" Component={Dashboard}/>
+          <Route path="/dashform" Component={DashSignForm}/>
+          
+        </Routes> 
       </ThemeProvider>
     </ReactLenis>
 

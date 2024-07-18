@@ -1,9 +1,7 @@
-import { Button, buttonVariants } from "../../ui/button";
+import { Button } from "../../ui/button";
 import React, { useRef, useState } from "react";
-import { ModeToggle } from "./mode-toggle";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import Logo from "../../../assets/Logo.png";
-import { SignOutButton, useUser } from "@clerk/clerk-react";
 import { useUserEmail } from "../../Context/UserEmail";
 import {
   NavigationMenu,
@@ -13,27 +11,33 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "../../ui/navigation-menu";
-import { SignInButton } from "@clerk/clerk-react";
+import { SignOutButton, useUser } from "@clerk/clerk-react";
 import { Link } from "react-router-dom";
 
 const AfterSignNav = () => {
   const { user } = useUser();
-
   const { setUserEmail } = useUserEmail();
-
   setUserEmail(user.primaryEmailAddress);
 
-  const [isHidden, setisHidden] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
   const { scrollY } = useScroll();
   const lastYRef = useRef(0);
 
   useMotionValueEvent(scrollY, "change", (y) => {
     const diff = y - lastYRef.current;
     if (Math.abs(diff) > 50) {
-      setisHidden(diff > 0);
+      setIsHidden(diff > 0);
       lastYRef.current = y;
     }
   });
+
+  const auth = localStorage.getItem("user");
+  console.log(auth);
+  if (auth) {
+    console.log(auth);
+  } else {
+    console.log(auth);
+  }
 
   return (
     <motion.nav
@@ -44,7 +48,7 @@ const AfterSignNav = () => {
     >
       <motion.div
         animate={isHidden ? "hidden" : "visible"}
-        onFocusCapture={() => setisHidden(false)}
+        onFocusCapture={() => setIsHidden(false)}
         whileHover="visible"
         variants={{
           hidden: {
@@ -57,63 +61,60 @@ const AfterSignNav = () => {
         transition={{ duration: 0.3 }}
         className="nav-list w-fit h-16 z-20 px-8 list-none flex flex-row justify-center items-center fixed rounded-full border border-neutral-700 bg-gray-900 text-white dark:border-slate-200 dark:bg-slate-100 dark:text-black"
       >
-        <img src={Logo} alt="" className=" h-16" />
+        <img src={Logo} alt="" className="h-16" />
         <Button variant="ghost">Home</Button>
         <Button variant="ghost">About</Button>
         <Button variant="ghost">Pricing</Button>
         <Button variant="ghost">Contact</Button>
-        <Link to="/profile" style={{ listStyle: "none", textDecoration: "none", color: 'whitesmoke' }}><p>{user.fullName}</p></Link>
-        <NavigationMenu className=" dark ">
+        <Link
+          to="/profile"
+          style={{
+            listStyle: "none",
+            textDecoration: "none",
+            color: "whitesmoke",
+          }}
+        >
+          <p>{user.fullName}</p>
+        </Link>
+        <NavigationMenu className="dark">
           <NavigationMenuList>
             <NavigationMenuItem>
-              <NavigationMenuTrigger className=" hover:bg-accent hover:text-accent-foreground text-lg font-light">
+              <NavigationMenuTrigger className="hover:bg-accent hover:text-accent-foreground text-lg font-light">
                 Go To Feature
               </NavigationMenuTrigger>
               <NavigationMenuContent>
-                <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                  <li className="row-span-3">
-                    <NavigationMenuLink asChild>
-                      <a
-                        className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                        href="/"
-                      >
-                        <img src={Logo} alt=" h-6 w-6" />
-                        <div className="mb-2 mt-4 text-lg font-medium">
-                          Go to the feature
-                        </div>
-                        <p className="text-sm leading-tight text-muted-foreground">
-                          Write Any relevent things here
-                        </p>
-                      </a>
-                    </NavigationMenuLink>
+                <ul className="flex flex-col max-w-sm gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                  <li>
+                    <a
+                      href="https://agrico-community.vercel.app"
+                      title="Introduction"
+                      className="font-thin hover:bg-gray-700"
+                    >
+                      <p className="font-bold">Community</p>
+                      Get the latest news about Government Subsidies and news in
+                      Farming
+                    </a>
                   </li>
-                  <a
-                    href="/docs"
-                    title="Introduction"
-                    className=" font-thin hover:bg-gray-700"
-                  >
-                    <p className=" font-bold ">Community</p>
-                    Get the latest news about Goverment Subsidies and news in
-                    Farming
-                  </a>
-
-                  <a
-                    href="/docs/installation"
-                    title="Installation"
-                    className=" font-thin hover:bg-gray-700"
-                  >
-                    <p className=" font-bold ">Installation</p>
-                    How to install dependencies and structure your app.
-                  </a>
-
-                  <a
-                    href="/docs/primitives/typography"
-                    title="Typography"
-                    className=" font-thin hover:bg-gray-700"
-                  >
-                    <p className=" font-bold ">Typography</p>
-                    Styles for headings, paragraphs, lists...etc.
-                  </a>
+                  <li>
+                    <Link
+                      to={auth ? "/dashboard" : "/dashform"}
+                      className="font-thin hover:bg-gray-700"
+                    >
+                      <p className="font-bold">Dashboard</p>
+                      Get your savings plan and analyze the investment with an
+                      interactive dashboard.
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/docs/primitives/typography"
+                      title="Typography"
+                      className="font-thin hover:bg-gray-700"
+                    >
+                      <p className="font-bold">Price Alert</p>
+                      Get the latest price alert of crops via SMS.
+                    </Link>
+                  </li>
                 </ul>
               </NavigationMenuContent>
             </NavigationMenuItem>
