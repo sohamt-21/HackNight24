@@ -39,7 +39,7 @@ const Navbar = () => {
         transition={{ duration: 0.3 }}
         className="nav-list w-fit h-16 z-20 px-8 list-none flex flex-row justify-center items-center fixed rounded-full border border-neutral-700 bg-gray-900 text-white dark:border-slate-200 dark:bg-slate-100 dark:text-black"
       >
-        <img src={Logo} alt="" className="h-16" />
+        <p className=" font-bold font-Soria text-3xl underline px-2">Agrico</p>
         <a href="#home">
           <Button variant="ghost">Home</Button>
         </a>
