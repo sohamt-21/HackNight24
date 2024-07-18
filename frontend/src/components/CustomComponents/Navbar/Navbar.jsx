@@ -3,6 +3,7 @@ import React, { useRef, useState } from "react";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import Logo from "../../../assets/Logo.png";
 import { SignInButton } from '@clerk/clerk-react';
+import { ExternalLink } from "lucide-react";
 
 const Navbar = () => {
   const [isHidden, setisHidden] = useState(false);
@@ -26,7 +27,7 @@ const Navbar = () => {
     >
       <motion.div
         animate={isHidden ? "hidden" : "visible"}
-        onFocusCapture={() => setisHidden(false)}
+        onFocusCapture={() => setIsHidden(false)}
         whileHover="visible"
         variants={{
           hidden: {
@@ -39,13 +40,38 @@ const Navbar = () => {
         transition={{ duration: 0.3 }}
         className="nav-list w-fit h-16 z-20 px-8 list-none flex flex-row justify-center items-center fixed rounded-full border border-neutral-700 bg-gray-900 text-white dark:border-slate-200 dark:bg-slate-100 dark:text-black"
       >
-        <img src={Logo} alt="" className=" h-16" />
-        <a href="#home"><Button variant="ghost">Home</Button></a>
-        <a href="#about"><Button variant="ghost">About</Button></a>
-        <a href="#course"><Button variant="ghost">Courses</Button></a>
-        <a href="#footer"><Button variant="ghost">Contact</Button></a>
-        <Button variant="ghost"><SignInButton id='navbarbutton'/></Button>
-        {/* <ModeToggle /> */}
+        <img src={Logo} alt="" className="h-16" />
+        <a href="#home">
+          <Button variant="ghost">Home</Button>
+        </a>
+        <a href="https://agrico-community.vercel.app">
+          <Button variant="ghost" className="gap-1">
+            Community <ExternalLink size={18} />
+          </Button>
+        </a>
+
+        <a href="/localhost:3001">
+          <Button variant="ghost" className=" gap-1">
+            Live Bid <ExternalLink size={18} />
+          </Button>
+        </a>
+
+        <a href="/localhost:3001">
+          <Button variant="ghost" className=" gap-1">
+            Crop Suggestor <ExternalLink size={18} />
+          </Button>
+        </a>
+
+        <a href="/localhost:3001">
+          <Button variant="ghost" className=" gap-1">
+            Gold & Silver Signal Tracker <ExternalLink size={18} />
+          </Button>
+        </a>
+
+        <Button variant="ghost"><SignInButton id='signinbutton'/></Button>
+        <a href="#footer">
+          <Button variant="ghost">Contact</Button>
+        </a>
       </motion.div>
     </motion.nav>
   );

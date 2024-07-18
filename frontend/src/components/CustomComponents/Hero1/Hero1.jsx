@@ -56,7 +56,7 @@ function Hero1() {
               />
             </p>
             <p className="hero-text text-lg my-2 font-light max-w-3xl mx-auto text-center">
-              Plan your future and save money by direclty bidding and connection to ASMP Lisecence Owner and free access to all education content.
+              Plan your future and save money by direclty bidding and connection to APMC Licenses Owner and free access to all education content.
             </p>
           </div>
           <div className="hero1-img my-3">

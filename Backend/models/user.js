@@ -4,7 +4,9 @@ const userschema=new mongoose.Schema({
     name:String,
     currentsaving:String,
     AnnualSaving:String,
-    Goal:String
+    Goal:String,
+    month:String,
+    lastmonthsave:Number
 })
 // userschema.pre('save',async function(next){
 //     const user =this;
