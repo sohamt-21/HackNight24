@@ -9,8 +9,7 @@ import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
-} from "../../ui/hover-card"
-
+} from "../../ui/hover-card";
 
 const AfterSignNav = () => {
   const { user } = useUser();
@@ -95,10 +94,10 @@ const AfterSignNav = () => {
           }}
         ></Link>
         <Button className=" gap-1">
-          <a href="/dashboard" className=" items-center flex flex-row gap-1">
+          <Link to="/dashboard" className=" items-center flex flex-row gap-1">
             <img src={user.imageUrl} alt="" className="max-h-10 rounded-full" />
             {user.fullName}
-          </a>
+          </Link>
         </Button>
 
         <Button variant="ghost">
