@@ -18,7 +18,8 @@ import {
 
 export const description = "A bar chart"
 
-export default function Barchart({ chartData, chartConfig }) {
+export default function Barchart({ chartConfig, chartData }) {
+
   return (
     <Card > 
       <CardHeader>

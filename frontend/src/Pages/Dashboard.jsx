@@ -23,33 +23,20 @@ function Dashboard() {
   }, []);
 
   const initialChartData = [
-    { month: "January", crop: 0 },
-    { month: "February", crop: 0 },
-    { month: "March", crop: 0 },
-    { month: "April", crop: 0 },
-    { month: "May", crop: 200},
-    { month: "June", crop: 0 },
-    { month: "July", crop: 0 },
-    { month: "August", crop: 0 },
-    { month: "September", crop: 0 },
-    { month: "October", crop: 0 },
-    { month: "November", crop: 0 },
-    { month: "December", crop: 0 },
+    { month: "January", crop: 186 },
+    { month: "February", crop: 305 },
+    { month: "March", crop: 237 },
+    { month: "April", crop: 73 },
+    { month: "May", crop: 209 },
+    { month: "June", crop: 214 },
+    { month: "July", crop: 186 },
+    { month: "August", crop: 305 },
+    { month: "Sepetember", crop: 237 },
+    { month: "October", crop: 73 },
+    { month: "November", crop: 209 },
+    { month: "December", crop: 214 },
   ];
 
-  const [chartData, setChartData] = useState(initialChartData);
- 
-  // const updateChartData = (month, crop) => {
-  //   setChartData(chartData.map(data => data.month === month ? { ...data, crop } : { ...data, crop: 0 }));
-  // };
-
- 
-  // useEffect(() => {
-  
-  //   const month = userData.month;
-  //   const crop = userData.lastmonthsave;
-  //   updateChartData(month, crop);
-  // }, []);
 
   const chartConfig = {
     crop: {
@@ -64,15 +51,13 @@ function Dashboard() {
     setActiveButton(buttonName);
   };
 
-  const clearData = () => {
-    localStorage.clear();
-  };
 
   return (
+    <>
     <div className="p-4 h-screen m-4">
       <div className="flex flex-row justify-between items-center border-b h-[3rem]">
         <p className="font-bold text-4xl">Dashboard</p>
-        <button onClick={clearData}>signout</button>
+        {/* <button onClick={clearData}>signout</button> */}
       </div>
       <div className="flex flex-col gap-4 pt-4">
         {isUser && <h1 className="font-bold text-3xl">Hi, {userData.name}</h1>}
@@ -134,7 +119,7 @@ function Dashboard() {
         </div>
         <div className="grid gap-8 md:grid-cols-2">
           <div className="w-full">
-            <Barchart chartConfig={chartConfig} chartData={chartData} />
+            <Barchart chartConfig={chartConfig} chartData={initialChartData}/>
           </div>
           <div className="flex flex-col border rounded-xl shadow-sm">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-2">
@@ -183,6 +168,7 @@ function Dashboard() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 

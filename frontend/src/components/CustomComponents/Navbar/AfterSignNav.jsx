@@ -5,11 +5,6 @@ import { useUserEmail } from "../../Context/UserEmail";
 import { SignOutButton, useUser } from "@clerk/clerk-react";
 import { Link } from "react-router-dom";
 import { ExternalLink } from "lucide-react";
-import {
-  HoverCard,
-  HoverCardContent,
-  HoverCardTrigger,
-} from "../../ui/hover-card";
 
 const AfterSignNav = () => {
   const { user } = useUser();
@@ -99,7 +94,6 @@ const AfterSignNav = () => {
             {user.fullName}
           </Link>
         </Button>
-
         <Button variant="ghost">
           <SignOutButton id="navbarbutton" />
         </Button>
